@@ -1,5 +1,7 @@
 # visuals
 
-Some useless visual effects which were made to please my eyes...
+Some useless visual effects..
+
+Just for fun..
 
 And show off.

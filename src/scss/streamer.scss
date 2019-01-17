@@ -1,0 +1,94 @@
+.rotate-box {
+  position: relative;
+  font-size: 80px;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+}
+.streamer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  transform-style: preserve-3d;
+  animation: stream_rotate 5s linear infinite;
+}
+.circle {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  background: transparent;
+}
+.circle::before {
+  content: '\0020';
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: .03em solid rgba(0, 144, 255, .75);
+  transform: rotateX(64deg);
+  display: none;
+}
+.circle::after {
+  content: '\0020';
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 1em;
+  height: 1em;
+  border-top: .07em solid #09f;
+  border-bottom: .07em solid #38c;
+  /* border-top: .05em solid rgb(255, 255, 0); */
+  /* border-bottom: .05em solid rgb(255, 255, 0); */
+  border-radius: 50%;
+  transform: rotateX(64deg) rotateZ(0);
+
+  animation-name: streamer;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.circle:nth-of-type(2) {
+  -ms-transform: rotateZ(240deg);
+  transform: rotateZ(240deg);
+}
+.circle:nth-of-type(3) {
+  -ms-transform: rotateZ(120deg);
+  transform: rotateZ(120deg);
+}
+.circle:nth-of-type(2)::after {
+  animation-direction: reverse;
+  animation-duration: 3s;
+  animation-delay: 1s;
+}
+.circle:nth-of-type(3)::after {
+  animation-duration: 3s;
+  animation-delay: 2s;
+}
+
+@keyframes stream_rotate {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes streamer {
+  0% {
+    transform: rotateX(64deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(64deg) rotateZ(1800deg);
+  }
+}

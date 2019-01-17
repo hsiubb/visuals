@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+@import 'function';
+@import 'streamer';
+@import 'windmill';
+@import 'rect';
+@import 'round-shield';
+@import 'rolling-boxes';
+@import 'loading-grids';
+@import 'dice';
+@import 'bubble';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+body {
+    user-select: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+
+    .rotate-box,
+    .site-name {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 14px;
+        vertical-align: middle;
+        text-align: left;
+        color: #09f;
+    }
+    .rotate-box {
+        font-size: 60px;
+    }
+    .site-info {
+        color: #333;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        line-height: 1.8;
+        color: #333;
+        font-weight: normal;
+        background-color: #fff;
+        transition: all .3s ease-in-out;
+
+        .my-name {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+            color: #09f;
+            vertical-align: top;
+            text-decoration: none;
+            overflow: hidden;
+
+            &::before,
+            &::after {
+                content: '\0020';
+                position: absolute;
+                z-index: 0;
+                width: 100%;
+                height: 1px;
+                background: currentColor;
+                border-radius: 5px;
+                transition: all .3s ease-in-out;
+            }
+            &::before {
+                top: 4px;
+                left: -100%;
+            }
+            &::after {
+                bottom: 2px;
+                right: -100%;
+            }
+            &:hover {
+                &::before {
+                    left: 0;
+                }
+                &::after {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+.header-placeholder {
+    height: 100px;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.25vw 0;
+
+    > div {
+        position: relative;
+        width: 22.5vw;
+        height: 22.5vw;
+        display: flex;
+        transform-style: preserve-3d;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2.5vw;
+        overflow: hidden;
+        border: 1px solid #ddd;
+    }
+    .round-shield {
+        font-size: 1.125vw;
+        color: rgba(0, 0, 0, .2);
+    }
+    .dice {
+        font-size: 60px;
+    }
+    .dot-line canvas {
+        margin: -2px;
+    }
+    .title-tag {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        padding: .25em .5em;
+        font-size: 12px;
+        line-height: 1;
+        background: rgba(255, 255, 255, .3);
+        border: 1px solid #ddd;
+        border-radius: .25em 0 .25em .5em;
+        pointer-events: none;
+    }
+    .bubble {
+        font-size: 11.25vw;
+    }
+}
+.pause-animation {
+    *,
+    ::before,
+    ::after,
+    &::before,
+    &::after {
+        animation-play-state: paused !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    section {
+        > div {
+            width: 30vw;
+            height: 30vw;
+        }
+        .round-shield {
+            font-size: 1.5vw;
+        }
+        .bubble {
+            font-size: 15vw;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    section {
+        > div {
+            width: 45vw;
+            height: 45vw;
+            margin-bottom: 3.75vw;
+        }
+        .round-shield {
+            font-size: 2.25vw;
+        }
+        .bubble {
+            font-size: 22.5vw;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    header {
+        padding: 10px 0;
+
+        .rotate-box,
+        .site-name {
+            margin: 0 5px;
+        }
+    }
+    section {
+        > div {
+            width: 90vw;
+            height: 90vw;
+        }
+        .round-shield {
+            font-size: 4.5vw;
+        }
+        .bubble {
+            font-size: 45vw;
+        }
+    }
+}

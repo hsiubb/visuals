@@ -1,0 +1,58 @@
+.rolling-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::after {
+        content: '\0020';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 215px;
+        height: 10px;
+        margin-top: 20px;
+        color: #97efe7;
+        transform: translate(-50%, -50%);
+        background-color: currentColor;
+        background-size: 5px 5px;
+        background-image: linear-gradient(45deg,rgba(255,255,255,1) 25%,transparent 25%,transparent 50%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 75%,transparent 75%,transparent);
+        animation: progress-bar-stripes .2s linear infinite, change_color 6s infinite linear;
+    }
+
+    .rolling-box {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+        border-radius: 6px;
+        color: #97efe7;
+        background-color: currentColor;
+        transform: translate(12px, 0) rotate(0deg);
+        animation: rolling 1.5s infinite linear, change_color 6s infinite linear;
+
+        &:nth-of-type(2) {animation-delay: .3s;}
+        &:nth-of-type(3) {animation-delay: .6s;}
+        &:nth-of-type(4) {animation-delay: .9s;}
+        &:nth-of-type(5) {animation-delay: 1.2s;}
+    }
+}
+
+@keyframes progress-bar-stripes {
+  from { background-position: 0 0; }
+  to { background-position: 10px 0; }
+}
+@keyframes rolling {
+    0% {transform: translate(12px, 0) rotate(0deg);}
+    10% {transform: translate(0, -3px) rotate(-45deg);}
+    20% {transform: translate(-12px, 0) rotate(-90deg) scale(1);}
+    24% {transform: translate(-12px, 3px) rotate(-90deg) scale(.9, 1.1);}
+    28% {transform: translate(-12px, 0) rotate(-90deg) scale(1);}
+    100% {transform: translate(12px, 0) rotate(-90deg);}
+}
+@keyframes change_color {
+    0% {-webkit-background-color: #9ee;color: #9ee;}
+    15% {-webkit-background-color: #ee9;color: #ee9;}
+    30% {-webkit-background-color: #9e9;color: #9e9;}
+    50% {-webkit-background-color: #e99;color: #e99;}
+    70% {-webkit-background-color: #e9e;color: #e9e;}
+    85% {-webkit-background-color: #99e;color: #99e;}
+    100% {-webkit-background-color: #9ee;color: #9ee;}
+}

@@ -1,0 +1,71 @@
+.loading-grids {
+}
+.loading-grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin: -15px;
+    color: #9ee;
+    background-color: currentColor;
+    border-radius: 5px;
+    animation-name: loading_grids, change_color;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.loading-grid:nth-of-type(2) {
+    animation-delay: -3s;
+    color: #9e9;
+}
+.loading-grid:nth-of-type(3) {
+    animation-delay: -2s;
+    color: #e9e;
+}
+.loading-grid:nth-of-type(4) {
+    animation-delay: -1s;
+    color: #99e;
+}
+@keyframes loading_grids {
+    0% {
+        transform: translate(-30px, 0) rotate(0);
+        border-radius: 5px;
+    }
+    12.5% {
+        border-radius: 10px;
+    }
+    25% {
+        transform: translate(0, 30px) rotate(90deg);
+        border-radius: 5px;
+    }
+    37.5% {
+        border-radius: 10px;
+    }
+    50% {
+        transform: translate(30px, 0) rotate(180deg);
+        border-radius: 5px;
+    }
+    62.5% {
+        border-radius: 10px;
+    }
+    75% {
+        transform: translate(0, -30px) rotate(270deg);
+        border-radius: 5px;
+    }
+    87.5% {
+        border-radius: 10px;
+    }
+    100% {
+        transform: translate(-30px, 0) rotate(360deg);
+        border-radius: 5px;
+    }
+}
+@keyframes change_color {
+    0% {color: #9ee;}
+    20% {color: #9e9;}
+    40% {color: #ee9;}
+    60% {color: #e9e;}
+    80% {color: #99e;}
+    100% {color: #9ee;}
+}

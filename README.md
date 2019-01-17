@@ -2,6 +2,10 @@
 
 Visual effects.
 
-All of them wrote with JS or/and CSS.
+---
 
-Just for fun.
+https://hsiubb.github.io/visuals/build/
+
+All of them made by JS or/and CSS.
+
+Have fun & good luck.

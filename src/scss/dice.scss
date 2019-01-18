@@ -5,6 +5,8 @@
     width: 1em;
     height: 1em;
     font-size: 30px;
+    color: #fff;
+    background: #333;
     transform-style: preserve-3d;
     perspective: 24em;
     animation-name: roller;
@@ -24,14 +26,14 @@
     font-style: normal;
     line-height: 1em;
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: .2em;
-    background: #fff;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background: #333;
 }
 .dice::before,
 .dice::after {
     content: '\0020';
-    background: #fff;
+    background: #333;
 }
 .dice::before {
     transform: rotateX(45deg);
@@ -63,12 +65,13 @@
     width: .2em;
     height: .2em;
     border-radius: 50%;
-    color: #09f;
     background: currentcolor;
 }
 .dice [side="1"]::before {
-    top: .4em;
-    left: .4em;
+    top: .3em;
+    left: .3em;
+    width: .4em;
+    height: .4em;
     color: #d55;
 }
 .dice [side="2"]::before {
@@ -84,7 +87,7 @@
 .dice [side="4"]::before {
     top: .4em;
     left: .4em;
-    color: #d45353;
+    color: #d55;
     background: transparent;
     box-shadow: -.2em -.2em currentcolor, -.2em .2em currentcolor, .2em -.2em currentcolor, .2em .2em currentcolor;
 }
@@ -102,9 +105,9 @@
 
 @keyframes roller {
     0% {
-        transform: rotateX(45deg) rotateY(45deg) rotateZ(90deg);
+        transform: rotateY(45deg) rotateX(45deg) rotateZ(45deg);
     }
     100% {
-        transform: rotateX(45deg) rotateY(405deg) rotateZ(450deg);
+        transform: rotateY(765deg) rotateX(45deg) rotateZ(45deg);
     }
 }

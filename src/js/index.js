@@ -2,7 +2,7 @@
 import './snow';
 import './firework';
 import './strange';
-import './earth';
+// import './earth';
 import './spiral';
 import './heartbeat';
 import './gears';

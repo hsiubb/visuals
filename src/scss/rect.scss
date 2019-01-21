@@ -6,7 +6,6 @@
     height: 100px;
     margin: -50px -100px;
     overflow: hidden;
-    border-radius: 4px;
     animation: rect 5s infinite ease-in-out;
 
     color: #9e9;
@@ -54,11 +53,11 @@
 }
 
 @keyframes rect {
-    20% {transform: rotate(0);}
-    40% {transform: rotate(180deg);}
-    60% {transform: rotate(180deg) scale(.5);}
-    80% {transform: rotate(180deg) scale(.5) skew(-30deg, 0);}
-    100% {transform: rotate(180deg) scale(.5) skew(-30deg, 0);}
+    20% {transform: rotateZ(0);}
+    40% {transform: rotateZ(180deg);}
+    60% {transform: rotateZ(180deg) rotateX(180deg) scale(.5);}
+    80% {transform: rotateZ(180deg) rotateX(180deg) rotateY(180deg) scale(.5) skew(-30deg, 0);}
+    100% {transform: rotateZ(180deg) rotateX(180deg) rotateY(180deg) scale(.5) skew(-30deg, 0);}
 }
 @keyframes main_act {
     80% {opacity: 1;}

@@ -41,16 +41,18 @@ let maze;
 		_this.x = (i + .5) * unitSize;
 		_this.y = (j + .5) * unitSize;
 		_this.t = [_this.x, j * unitSize];
-		_this.b = [_this.x, (j + 1) * unitSize + .5];
-		_this.r = [(i + 1) * unitSize + .5, _this.y];
+		_this.b = [_this.x, (j + 1) * unitSize];
+		_this.r = [(i + 1) * unitSize, _this.y];
 		_this.l = [i * unitSize, _this.y];
 	}
 	Grid.prototype.update = function() {
 		let _this = this;
 		_this.opacity = Math.min(1, _this.opacity + .05);
 		ctx.save();
-			ctx.lineWidth = 2;
-			ctx.strokeStyle = '#333';
+			ctx.lineWidth = unitSize * .1;
+			// ctx.lineWidth = 3;
+			ctx.lineJoin = 'round';
+			ctx.strokeStyle = '#fff';
 			ctx.globalAlpha = _this.opacity;
 			for(let d in _this.dir) {
 				if(_this.dir[d]) {
@@ -250,7 +252,7 @@ let maze;
 	}
 
 	function update() {
-		ctx.fillStyle = '#fff';
+		ctx.fillStyle = '#333';
 		ctx.fillRect(0, 0, globalSize, globalSize);
 
 		grids.update();

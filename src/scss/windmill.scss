@@ -5,12 +5,13 @@
     &::after {
         content: '\0020';
         position: absolute;
-        top: 50%;
+        bottom: 15%;
         left: 50%;
-        width: 120px;
+        width: 36%;
         height: 12px;
         border-radius: 50%;
-        box-shadow: 0 100px 5px rgba(0, 48, 96, .1);
+        background: rgba(0, 96, 192, .1);
+        box-shadow: 0 0 6px rgba(0, 96, 192, .1);
         transform: translate(-50%, -50%);
         animation: shadow 3s ease-in-out infinite;
     }
@@ -32,11 +33,14 @@
         top: 50%;
         left: 50%;
         z-index: 10;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
 
         & + span {
-            transform: rotateX(90deg);
+            transform: translate(-50%, -50%) rotateX(90deg);
         }
         &::before,
         &::after {
@@ -45,15 +49,14 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100px;
-            height: 160px;
-            margin: -80px -50px;
+            width: 30%;
+            height: 50%;
+            transform: translate(-50%, -50%);
             border-radius: 10px;
             background-image: linear-gradient(to bottom, #cde 0%, rgba(191, 223, 255, .3) 50%, #cde 100%);
-            box-shadow: 0 0 3px 1px #cde;
         }
         &::after {
-            transform: rotateX(45deg);
+            transform: translate(-50%, -50%) rotateX(45deg);
         }
     }
 }

@@ -110,15 +110,15 @@ section {
 
     > div {
         position: relative;
-        width: 22.5vw;
-        height: 22.5vw;
+        width: 23vw;
+        height: 23vw;
         display: flex;
         transform-style: preserve-3d;
         justify-content: center;
         align-items: center;
-        margin-bottom: 2.5vw;
+        margin-bottom: 2vw;
         overflow: hidden;
-        border: 1px solid #ddd;
+        border: 1px solid rgba(192, 192, 192, .1);
     }
     .round-shield {
         font-size: 1.125vw;
@@ -138,8 +138,8 @@ section {
         font-size: 12px;
         line-height: 1;
         background: rgba(255, 255, 255, .3);
-        border: 1px solid #ddd;
-        border-radius: .25em 0 .25em .5em;
+        border: 1px solid rgba(192, 192, 192, .2);
+        border-bottom-left-radius: .5em;
         pointer-events: none;
     }
     .bubble {
@@ -159,8 +159,9 @@ section {
 @media (max-width: 1200px) {
     section {
         > div {
-            width: 30vw;
-            height: 30vw;
+            width: 31vw;
+            height: 31vw;
+            margin-bottom: 2.33vw;
         }
         .round-shield {
             font-size: 1.5vw;

@@ -7,7 +7,7 @@ import './spiral';
 import './heartbeat';
 import './gears';
 import './roundshield';
-// import './maze';
+import './maze';
 // import './lightbox';
 // import './dot-line';
 

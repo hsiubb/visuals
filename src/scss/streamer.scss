@@ -23,19 +23,19 @@
   height: 1em;
   background: transparent;
 }
-.circle::before {
-  content: '\0020';
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  border: .03em solid rgba(0, 144, 255, .75);
-  transform: rotateX(64deg);
-  display: none;
-}
+// .circle::before {
+//   content: '\0020';
+//   box-sizing: border-box;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 1em;
+//   height: 1em;
+//   border-radius: 50%;
+//   border: .03em solid rgba(0, 144, 255, .75);
+//   transform: rotateX(64deg);
+//   display: none;
+// }
 .circle::after {
   content: '\0020';
   box-sizing: border-box;
@@ -45,16 +45,18 @@
   z-index: 100;
   width: 1em;
   height: 1em;
-  border-top: .07em solid #09f;
-  border-bottom: .07em solid #38c;
+  border-width: .07em 0;
+  border-style: solid;
+  border-color: #99e transparent #ee9;
   /* border-top: .05em solid rgb(255, 255, 0); */
   /* border-bottom: .05em solid rgb(255, 255, 0); */
   border-radius: 50%;
   transform: rotateX(64deg) rotateZ(0);
 
-  animation-name: streamer;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
+  animation-name: streamer, stream_color;
+  animation-duration: 3s, 17s;
+  // animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 .circle:nth-of-type(2) {
@@ -67,12 +69,13 @@
 }
 .circle:nth-of-type(2)::after {
   animation-direction: reverse;
-  animation-duration: 3s;
-  animation-delay: 1s;
+  // animation-duration: 3s;
+  // animation-duration: 5s, 17s;
+  animation-delay: -1s, -7s;
 }
 .circle:nth-of-type(3)::after {
-  animation-duration: 3s;
-  animation-delay: 2s;
+  // animation-duration: 3s;
+  animation-delay: -2s, -13s;
 }
 
 @keyframes stream_rotate {
@@ -90,5 +93,41 @@
   }
   100% {
     transform: rotateX(64deg) rotateZ(1800deg);
+  }
+}
+
+@keyframes stream_color {
+  0% {
+    border-color: #99e transparent #ee9;
+  }
+  10% {
+    border-color: #9e9 transparent #e9e;
+  }
+  20% {
+    border-color: #9ee transparent #e99;
+  }
+  30% {
+    border-color: #e99 transparent #9ee;
+  }
+  40% {
+    border-color: #e9e transparent #9e9;
+  }
+  50% {
+    border-color: #ee9 transparent #99e;
+  }
+  60% {
+    border-color: #e9e transparent #9e9;
+  }
+  70% {
+    border-color: #e99 transparent #9ee;
+  }
+  80% {
+    border-color: #9ee transparent #e99;
+  }
+  90% {
+    border-color: #9e9 transparent #e9e;
+  }
+  100% {
+    border-color: #99e transparent #ee9;
   }
 }

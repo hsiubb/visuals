@@ -7,8 +7,9 @@
 @import 'round-shield';
 @import 'rolling-boxes';
 @import 'loading-grids';
+@import 'vessel';
 @import 'dice';
-@import 'bubble';
+// @import 'bubble';
 
 * {
     padding: 0;
@@ -83,11 +84,11 @@ header {
             }
             &::before {
                 left: -100%;
-                border-width: 1px 0 0 1px;
+                border-width: 1px 0 0 0;
             }
             &::after {
                 right: -100%;
-                border-width: 0 1px 1px 0;
+                border-width: 0 0 1px 0;
             }
             &:hover {
                 &::before {

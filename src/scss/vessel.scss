@@ -1,0 +1,68 @@
+
+.vessel {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid rgba(255, 255, 255, .5);
+
+	&::before {
+		content: '\0020';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 0;
+		border-radius: 25%;
+		border: 5px solid rgba(255, 255, 255, .5);
+		background: #9ce;
+		animation: shake_vessel 24s ease-in-out infinite;
+	}
+}
+.vessel-arc {
+	position: absolute;
+	top: -250%;
+	left: -100%;
+    z-index: 1;
+	width: 300%;
+	height: 300%;
+	background: rgba(255, 255, 255, .3);
+	border-radius: 50% 60% 50% 40% / 60% 50% 40% 50%;
+	animation-name: round;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-delay: -7s;
+
+	&:nth-of-type(1) {
+		animation-duration: 13s;
+	}
+	&:nth-of-type(2) {
+		animation-duration: 17s;
+	}
+	&:nth-of-type(3) {
+		animation-direction: reverse;
+		animation-duration: 19s;
+	}
+	&:nth-of-type(4) {
+		background: rgba(255, 255, 255, .7);
+		z-index: 10;
+		border-radius: 50% 55% 50% 40% / 55% 50% 40% 50%;
+		animation-duration: 23s;
+	}
+}
+@keyframes shake_vessel {
+    50% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes round {
+	0% {
+		transform: rotateZ(0);
+	}
+	100% {
+		transform: rotateZ(1080deg);
+	}
+}

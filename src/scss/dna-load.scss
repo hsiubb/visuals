@@ -1,0 +1,62 @@
+
+.dnaLoad {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+.dnaLoad .dots {
+    position: relative;
+    width: 5%;
+    height: 100%;
+}
+.dnaLoad .dots::before,
+.dnaLoad .dots::after {
+    content: '\0020';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -10px;
+    border-radius: 50%;
+    animation: dna_rolling 2s ease-in-out infinite;
+}
+
+.dnaLoad .dots::before {background: #99e;}
+.dnaLoad .dots::after {background: #e99;}
+
+.dnaLoad .dots:nth-of-type(10n+1)::after {animation-delay: -1s;}
+
+.dnaLoad .dots:nth-of-type(10n+2)::before {animation-delay: -1.8s;}
+.dnaLoad .dots:nth-of-type(10n+2)::after {animation-delay: -.8s;}
+
+.dnaLoad .dots:nth-of-type(10n+3)::before {animation-delay: -1.6s;}
+.dnaLoad .dots:nth-of-type(10n+3)::after {animation-delay: -.6s;}
+
+.dnaLoad .dots:nth-of-type(10n+4)::before {animation-delay: -1.4s;}
+.dnaLoad .dots:nth-of-type(10n+4)::after {animation-delay: -.4s;}
+
+.dnaLoad .dots:nth-of-type(10n+5)::before {animation-delay: -1.2s;}
+.dnaLoad .dots:nth-of-type(10n+5)::after {animation-delay: -.2s;}
+
+.dnaLoad .dots:nth-of-type(10n+6)::before {animation-delay: -1s;}
+
+.dnaLoad .dots:nth-of-type(10n+7)::before {animation-delay: -.8s;}
+.dnaLoad .dots:nth-of-type(10n+7)::after {animation-delay: -1.8s;}
+
+.dnaLoad .dots:nth-of-type(10n+8)::before {animation-delay: -.6s;}
+.dnaLoad .dots:nth-of-type(10n+8)::after {animation-delay: -1.6s;}
+
+.dnaLoad .dots:nth-of-type(10n+9)::before {animation-delay: -.4s;}
+.dnaLoad .dots:nth-of-type(10n+9)::after {animation-delay: -1.4s;}
+
+.dnaLoad .dots:nth-of-type(10n)::before {animation-delay: -.2s;}
+.dnaLoad .dots:nth-of-type(10n)::after {animation-delay: -1.2s;}
+
+@keyframes dna_rolling {
+    0% {transform: translate(0, 20px) scale(.5);}
+    25% {z-index: 0;}
+    50% {transform: translate(0, -20px) scale(1);}
+    75% {z-index: 1;}
+    100% {transform: translate(0, 20px) scale(.5);}
+}

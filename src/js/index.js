@@ -66,7 +66,7 @@ function grad_random(min, max, is_fall) {
 	let title_tag = document.createElement('div');
 	title_tag.setAttribute('class', 'title-tag');
 	title_tag.innerHTML = type;
-	block.removeAttribute('title');
+	// block.removeAttribute('title');
 
 	block.appendChild(title_tag);
 });

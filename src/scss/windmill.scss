@@ -26,8 +26,7 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     transform: rotateY(-60deg) rotateX(-15deg);
-    animation: fan_rotate 4s, wave 3s;
-    animation-timing-function: linear, ease-in-out;
+    animation: fan_rotate 4s linear, wave 3s ease-in-out;
     animation-iteration-count: infinite;
 
     span {

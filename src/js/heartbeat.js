@@ -7,6 +7,7 @@ let heartbeat;
 	let ori = {};
 	let cur = {};
 	let points = [];
+	let color = '#38c';
 
 	function box_init(box) {
 		ori.x = box.offsetLeft;
@@ -50,7 +51,6 @@ let heartbeat;
 		update();
 	};
 
-
 	function get_rate(i, j) {
 		return (points[j][1] - points[i][1]) / (points[j][0] - points[i][0]);
 	}
@@ -79,6 +79,10 @@ let heartbeat;
 			cur.x = 0;
 			tar.x = cur.x + beat_unit;
 		}
+		if(hovering) {
+			cur.y = globalSize * .5;
+			tar.y = globalSize * .5;
+		}
 
 		ctx.save();
 			ctx.beginPath();
@@ -86,14 +90,32 @@ let heartbeat;
 				ctx.lineTo(tar.x, tar.y);
 			ctx.closePath();
 			ctx.lineWidth = 1;
-			ctx.strokeStyle = '#38c';
+			ctx.strokeStyle = color;
 			ctx.stroke();
 		ctx.restore();
 		cur.x = tar.x;
 		cur.y = tar.y;
 	}
 
+	let hovering = false;
+	let turndown = false;
 	function update() {
+		// if(hovering) {
+		// 	// turndown = (turndown + 1) % 10;
+		// 	turndown = (turndown + 1) % 4;
+		// 	if(!turndown) {
+		// 		ctx.fillStyle = 'rgba(48, 48, 48, .135)';
+		// 		ctx.fillRect(0, 0, globalSize, globalSize);
+
+		// 		drawLine();
+		// 	}
+		// } else {
+		// 	ctx.fillStyle = 'rgba(48, 48, 48, .135)';
+		// 	ctx.fillRect(0, 0, globalSize, globalSize);
+
+		// 	drawLine();
+		// }
+
 		ctx.fillStyle = 'rgba(48, 48, 48, .135)';
 		ctx.fillRect(0, 0, globalSize, globalSize);
 
@@ -101,6 +123,15 @@ let heartbeat;
 
 		window.requestAnimationFrame(update);
 	}
+
+	cvs.addEventListener('mouseover', function() {
+		color = '#e33';
+		hovering = true;
+	});
+	cvs.addEventListener('mouseout', function() {
+		color = '#38c';
+		hovering = false;
+	});
 }());
 
 heartbeat('heartbeat');

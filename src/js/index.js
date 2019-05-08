@@ -69,4 +69,8 @@ function grad_random(min, max, is_fall) {
 	// block.removeAttribute('title');
 
 	block.appendChild(title_tag);
+	[].slice.call(block.querySelectorAll('.title-tag + .title-tag')).map(function(tag) {
+		block.removeChild(tag);
+	});
 });
+document.querySelectorAll('.title-tag + .title-tag').remove();

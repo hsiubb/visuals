@@ -125,6 +125,10 @@ section {
         overflow: hidden;
         box-shadow: 0 0 1px rgba(192, 192, 192, .3);
 
+        &[title="canvas"] {
+            background: #333;
+        }
+
         &[title="CSS3"]::before,
         &[title="CSS3"]::after {
             content: '\0020';
@@ -137,11 +141,11 @@ section {
             border: 1px solid #9ce;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
-            animation-duration: 2s;
+            animation-duration: 4s;
             animation-name: borderAround1;
         }
         &[title="CSS3"]::after {
-            animation-delay: -1s;
+            animation-delay: -2s;
         }
     }
     .round-shield {

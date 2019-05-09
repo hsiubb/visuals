@@ -6,128 +6,136 @@
     height: 1em;
     font-size: 30px;
     color: #fff;
-    // background: #333;
+    transform: rotateY(45deg) rotateX(45deg) rotateZ(45deg);
     transform-style: preserve-3d;
     perspective: 24em;
     animation-name: roller;
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+
+    &::before,
+    &::after,
+    [side] {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 1em;
+        height: 1em;
+        font-style: normal;
+        line-height: 1em;
+        text-align: center;
+        border: 1px solid #666;
+        border-radius: 5px;
+        background: #333;
+        transition: transform .3s ease;
+    }
+    &::before,
+    &::after {
+        content: '\0020';
+        background: #333;
+    }
+    &::before {
+        transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg);
+    }
+    &::after {
+        transform: rotateX(-45deg);
+    }
+
+    [side]::before {
+        content: '\0020';
+        position: absolute;
+        width: .2em;
+        height: .2em;
+        border-radius: 50%;
+        background: currentcolor;
+    }
+    [side="1"] {
+        transform: translateY(-.5em) rotateX(90deg);
+        &::before {
+            top: .3em;
+            left: .3em;
+            width: .4em;
+            height: .4em;
+            color: #d55;
+        }
+    }
+    [side="2"] {
+        transform: translateX(-.5em) rotateY(-90deg);
+
+        &::before {
+            top: .2em;
+            left: .4em;
+            box-shadow: 0 .4em currentcolor;
+        }
+    }
+    [side="3"] {
+        transform: translateZ(-.5em) rotateY(180deg) rotateZ(-90deg);
+
+        &::before {
+            top: .4em;
+            left: .4em;
+            box-shadow: -.2em -.2em currentcolor, .2em .2em currentcolor;
+        }
+    }
+    [side="4"] {
+        transform: translateZ(.5em) rotateZ(-90deg);
+
+        &::before {
+            top: .4em;
+            left: .4em;
+            color: #d55;
+            background: transparent;
+            box-shadow: -.2em -.2em currentcolor, -.2em .2em currentcolor, .2em -.2em currentcolor, .2em .2em currentcolor;
+        }
+    }
+    [side="5"] {
+        transform: translateX(.5em) rotateY(90deg);
+
+        &::before {
+            top: .4em;
+            left: .4em;
+            box-shadow: -.2em -.2em currentcolor, -.2em .2em currentcolor, .2em -.2em currentcolor, .2em .2em currentcolor;
+        }
+    }
+    [side="6"] {
+        transform: translateY(.5em) rotateX(-90deg);
+
+        &::before {
+            top: .4em;
+            left: .4em;
+            background: transparent;
+            box-shadow: -.2em -.25em currentcolor, -.2em .25em currentcolor, -.2em 0 currentcolor, .2em 0 currentcolor, .2em -.25em currentcolor, .2em .25em currentcolor;
+        }
+    }
 }
-[title="CSS3"]:hover .dice {
+
+[data-board="CSS3"]:hover .dice {
     animation-duration: 12s;
-}
-.dice::before,
-.dice::after,
-.dice [side] {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 1em;
-    height: 1em;
-    font-style: normal;
-    line-height: 1em;
-    text-align: center;
-    border: 1px solid #666;
-    border-radius: 5px;
-    background: #333;
-    transition: transform .3s ease;
-}
-.dice::before,
-.dice::after {
-    content: '\0020';
-    background: #333;
-}
-.dice::before {
-    transform: rotateX(45deg);
-}
-.dice::after {
-    transform: rotateX(-45deg);
-}
-[title="CSS3"]:hover .dice::before,
-[title="CSS3"]:hover .dice::after {
-    opacity: .5;
-}
-.dice [side="1"] {
-    transform: translateY(-.5em) rotateX(90deg);
-}
-.dice [side="2"] {
-    transform: translateX(-.5em) rotateY(-90deg);
-}
-.dice [side="3"] {
-    transform: translateZ(-.5em) rotateY(180deg) rotateZ(-90deg);
-}
-.dice [side="4"] {
-    transform: translateZ(.5em) rotateZ(-90deg);
-}
-.dice [side="5"] {
-    transform: translateX(.5em) rotateY(90deg);
-}
-.dice [side="6"] {
-    transform: translateY(.5em) rotateX(-90deg);
-}
-
-[title="CSS3"]:hover .dice [side="1"] {
-    transform: translateY(-1em) rotateX(90deg);
-}
-[title="CSS3"]:hover .dice [side="2"] {
-    transform: translateX(-1em) rotateY(-90deg);
-}
-[title="CSS3"]:hover .dice [side="3"] {
-    transform: translateZ(-1em) rotateY(180deg) rotateZ(-90deg);
-}
-[title="CSS3"]:hover .dice [side="4"] {
-    transform: translateZ(1em) rotateZ(-90deg);
-}
-[title="CSS3"]:hover .dice [side="5"] {
-    transform: translateX(1em) rotateY(90deg);
-}
-[title="CSS3"]:hover .dice [side="6"] {
-    transform: translateY(1em) rotateX(-90deg);
-}
-.dice [side]::before {
-    content: '\0020';
-    position: absolute;
-    width: .2em;
-    height: .2em;
-    border-radius: 50%;
-    background: currentcolor;
-}
-.dice [side="1"]::before {
-    top: .3em;
-    left: .3em;
-    width: .4em;
-    height: .4em;
-    color: #d55;
-}
-.dice [side="2"]::before {
-    top: .2em;
-    left: .4em;
-    box-shadow: 0 .4em currentcolor;
-}
-.dice [side="3"]::before {
-    top: .4em;
-    left: .4em;
-    box-shadow: -.2em -.2em currentcolor, .2em .2em currentcolor;
-}
-.dice [side="4"]::before {
-    top: .4em;
-    left: .4em;
-    color: #d55;
-    background: transparent;
-    box-shadow: -.2em -.2em currentcolor, -.2em .2em currentcolor, .2em -.2em currentcolor, .2em .2em currentcolor;
-}
-.dice [side="5"]::before {
-    top: .4em;
-    left: .4em;
-    box-shadow: -.2em -.2em currentcolor, -.2em .2em currentcolor, .2em -.2em currentcolor, .2em .2em currentcolor;
-}
-.dice [side="6"]::before {
-    top: .4em;
-    left: .4em;
-    background: transparent;
-    box-shadow: -.2em -.25em currentcolor, -.2em .25em currentcolor, -.2em 0 currentcolor, .2em 0 currentcolor, .2em -.25em currentcolor, .2em .25em currentcolor;
+    
+    &::before,
+    &::after {
+        opacity: .5;
+    }
+    [side="1"] {
+        transform: translateY(-1em) rotateX(90deg);
+    }
+    [side="2"] {
+        transform: translateX(-1em) rotateY(-90deg);
+    }
+    [side="3"] {
+        transform: translateZ(-1em) rotateY(180deg) rotateZ(-90deg);
+    }
+    [side="4"] {
+        transform: translateZ(1em) rotateZ(-90deg);
+    }
+    [side="5"] {
+        transform: translateX(1em) rotateY(90deg);
+    }
+    [side="6"] {
+        transform: translateY(1em) rotateX(-90deg);
+    }
 }
 
 @keyframes roller {

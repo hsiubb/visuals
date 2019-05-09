@@ -48,8 +48,8 @@ function grad_random(min, max, is_fall) {
 	return result;
 }
 
-[].slice.call(document.querySelectorAll('section [title]')).map(function(block) {
-	let type = block.getAttribute('title');
+[].slice.call(document.querySelectorAll('section [data-board]')).map(function(block) {
+	let type = block.getAttribute('data-board');
 	let left = block.offsetLeft;
 	let top = block.offsetTop;
 

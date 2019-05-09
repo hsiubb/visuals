@@ -136,12 +136,12 @@ section {
         overflow: hidden;
         box-shadow: 0 0 1px rgba(192, 192, 192, .3);
 
-        &[title="canvas"] {
+        &[data-board="canvas"] {
             background: #333;
         }
 
-        &[title="CSS3"]::before,
-        &[title="CSS3"]::after {
+        &[data-board="CSS3"]::before,
+        &[data-board="CSS3"]::after {
             content: '\0020';
             position: absolute;
             left: 0;
@@ -155,7 +155,7 @@ section {
             animation-duration: 2s;
             animation-name: borderAround1;
         }
-        &[title="CSS3"]::after {
+        &[data-board="CSS3"]::after {
             animation-delay: -1s;
         }
     }
@@ -202,8 +202,8 @@ section {
             height: 31vw;
             margin-bottom: 2.33vw;
 
-            &[title="CSS3"]::before,
-            &[title="CSS3"]::after {
+            &[data-board="CSS3"]::before,
+            &[data-board="CSS3"]::after {
                 animation-name: borderAround2;
             }
         }
@@ -223,8 +223,8 @@ section {
             height: 45vw;
             margin-bottom: 3.75vw;
 
-            &[title="CSS3"]::before,
-            &[title="CSS3"]::after {
+            &[data-board="CSS3"]::before,
+            &[data-board="CSS3"]::after {
                 animation-name: borderAround3;
             }
         }
@@ -251,8 +251,8 @@ section {
             width: 90vw;
             height: 90vw;
 
-            &[title="CSS3"]::before,
-            &[title="CSS3"]::after {
+            &[data-board="CSS3"]::before,
+            &[data-board="CSS3"]::after {
                 animation-name: borderAround4;
             }
         }

@@ -61,6 +61,9 @@
         }
     }
 }
+[data-board="CSS3"]:hover .fan-blades {
+    animation-duration: 64s, 3s;
+}
 @keyframes fan_rotate {
     0% {
         transform: rotateY(-60deg) rotateX(-15deg);

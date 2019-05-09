@@ -6,13 +6,16 @@
     height: 1em;
     font-size: 30px;
     color: #fff;
-    background: #333;
+    // background: #333;
     transform-style: preserve-3d;
     perspective: 24em;
     animation-name: roller;
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+}
+[title="CSS3"]:hover .dice {
+    animation-duration: 12s;
 }
 .dice::before,
 .dice::after,
@@ -29,6 +32,7 @@
     border: 1px solid #666;
     border-radius: 5px;
     background: #333;
+    transition: transform .3s ease;
 }
 .dice::before,
 .dice::after {
@@ -40,6 +44,10 @@
 }
 .dice::after {
     transform: rotateX(-45deg);
+}
+[title="CSS3"]:hover .dice::before,
+[title="CSS3"]:hover .dice::after {
+    opacity: .5;
 }
 .dice [side="1"] {
     transform: translateY(-.5em) rotateX(90deg);
@@ -58,6 +66,25 @@
 }
 .dice [side="6"] {
     transform: translateY(.5em) rotateX(-90deg);
+}
+
+[title="CSS3"]:hover .dice [side="1"] {
+    transform: translateY(-1em) rotateX(90deg);
+}
+[title="CSS3"]:hover .dice [side="2"] {
+    transform: translateX(-1em) rotateY(-90deg);
+}
+[title="CSS3"]:hover .dice [side="3"] {
+    transform: translateZ(-1em) rotateY(180deg) rotateZ(-90deg);
+}
+[title="CSS3"]:hover .dice [side="4"] {
+    transform: translateZ(1em) rotateZ(-90deg);
+}
+[title="CSS3"]:hover .dice [side="5"] {
+    transform: translateX(1em) rotateY(90deg);
+}
+[title="CSS3"]:hover .dice [side="6"] {
+    transform: translateY(1em) rotateX(-90deg);
 }
 .dice [side]::before {
     content: '\0020';

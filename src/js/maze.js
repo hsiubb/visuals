@@ -52,7 +52,7 @@ let maze;
 			ctx.lineWidth = unitSize * .1;
 			// ctx.lineWidth = 3;
 			ctx.lineJoin = 'round';
-			ctx.strokeStyle = '#fff';
+			ctx.strokeStyle = '#9ce';
 			ctx.globalAlpha = _this.opacity;
 			for(let d in _this.dir) {
 				if(_this.dir[d]) {

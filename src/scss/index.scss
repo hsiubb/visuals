@@ -22,6 +22,17 @@
 body {
     user-select: none;
 }
+body::after {
+    content: 'hsiubb';
+    position: relative;
+    margin-top: -2em;
+    display: block;
+    visibility: hidden;
+    font-size: 14px;
+    line-height: 2;
+    text-align: center;
+    color: #9ce;
+}
 
 header {
     position: fixed;
@@ -141,11 +152,11 @@ section {
             border: 1px solid #9ce;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
-            animation-duration: 4s;
+            animation-duration: 2s;
             animation-name: borderAround1;
         }
         &[title="CSS3"]::after {
-            animation-delay: -2s;
+            animation-delay: -1s;
         }
     }
     .round-shield {

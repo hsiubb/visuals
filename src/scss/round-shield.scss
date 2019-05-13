@@ -17,8 +17,8 @@
     color: #9ce;
     transform-style: preserve-3d;
 
-    animation-name: round_shield, change_opacity;
-    animation-duration: 4s;
+    animation-name: round_shield_color;
+    animation-duration: 3s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
@@ -31,6 +31,10 @@
   width: 1em;
   height: 1em;
   background-color: currentcolor;
+
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
 
   &::before,
   &::after {
@@ -92,27 +96,33 @@
     animation-delay: -.4s * $i;
   }
 
-  .round-shield:hover 。.shield-row {
+  [data-board="CSS3"]:hover .shield-row {
     animation-name: round_shield;
+    animation-duration: 2s;
   }
-  .hexagon {
+  [data-board="CSS3"]:hover .hexagon {
     animation-name: change_opacity;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
 
     &:nth-of-type(#{$i + 1}) {
       animation-delay: -$i * .2s;
     }
   }
 }
-
-@keyframes round_shield {
+@keyframes round_shield_color {
   0% {
     transform: rotateY(0deg);
   }
   50% {
-    transform: rotateY(180deg);
+    color: rgba(153, 204, 238, .3);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes round_shield {
+  0% {
+    transform: rotateY(0deg);
   }
   100% {
     transform: rotateY(360deg);
@@ -121,18 +131,6 @@
 
 @keyframes change_opacity {
   25% {opacity: 1;}
-  50% {
-    opacity: .3;
-  }
+  50% {opacity: .1;}
   75% {opacity: 1;}
-}
-
-@keyframes change_color {
-    0% {color: #9ee;}
-    15% {color: #ee9;}
-    30% {color: #9e9;}
-    50% {color: #e99;}
-    70% {color: #e9e;}
-    85% {color: #99e;}
-    100% {color: #9ee;}
 }

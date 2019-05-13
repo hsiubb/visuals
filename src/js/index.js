@@ -53,24 +53,15 @@ function grad_random(min, max, is_fall) {
 	let left = block.offsetLeft;
 	let top = block.offsetTop;
 
-	// if(type === 'CSS3') {
-	// 	block.addEventListener('click', function() {
-	// 		if([].slice.call(block.classList).indexOf('pause-animation') >= 0) {
-	// 			block.classList.remove('pause-animation');
-	// 		} else {
-	// 			block.classList.add('pause-animation');
-	// 		}
-	// 	});
-	// }
-
 	let title_tag = document.createElement('div');
 	title_tag.setAttribute('class', 'title-tag');
 	title_tag.innerHTML = type;
-	// block.removeAttribute('title');
 
 	block.appendChild(title_tag);
-	[].slice.call(block.querySelectorAll('.title-tag + .title-tag')).map(function(tag) {
-		block.removeChild(tag);
-	});
+	let tag_list = [].slice.call(block.querySelectorAll('.title-tag + .title-tag'));
+	if(tag_list.length) {
+		[].slice.call(block.querySelectorAll('.title-tag + .title-tag')).map(function(tag) {
+			block.removeChild(tag);
+		});
+	}
 });
-document.querySelectorAll('.title-tag + .title-tag').remove();

@@ -112,8 +112,8 @@
 }
 
 [data-board="CSS3"]:hover .dice {
-    animation-duration: 12s;
-
+    animation-duration: 24s;
+    
     &::before,
     &::after {
         opacity: .5;

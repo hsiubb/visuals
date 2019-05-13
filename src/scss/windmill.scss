@@ -26,7 +26,7 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     transform: rotateY(-60deg) rotateX(-15deg);
-    animation: fan_rotate 4s linear, wave 3s ease-in-out;
+    animation: fan_rotate 64s linear, wave 3s ease-in-out;
     animation-iteration-count: infinite;
 
     span {
@@ -62,7 +62,7 @@
     }
 }
 [data-board="CSS3"]:hover .fan-blades {
-    animation-duration: 64s, 3s;
+    animation-duration: 3s, 3s;
 }
 @keyframes fan_rotate {
     0% {

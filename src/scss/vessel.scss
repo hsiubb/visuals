@@ -25,8 +25,8 @@
 	}
 }
 [data-board="CSS3"]:hover .vessel::before {
-	animation: drop_vessel 1s ease forwards;
-	border-radius: 0 50% 50% 50%;
+	animation: none;
+	border-radius: 50%;
 }
 
 .vessel-arc {

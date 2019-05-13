@@ -2,30 +2,25 @@
 
 .round-shield {
   position: relative;
-  width: 20em;
-  height: 20em;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
   perspective: 24em;
   overflow: hidden;
-}
-.shield-row {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20em;
-  height: 20em;
-  transform-style: preserve-3d;
 
-  animation-name: round_shield;
-  animation-duration: 4s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
+  .shield-row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20em;
+    height: 20em;
+    color: #9ce;
+    transform-style: preserve-3d;
 
-@for $i from 0 through 12 {
-  .shield-row:nth-of-type(#{$i + 1}) {
-    top: - 3.6em + 1.2em * $i;
-    animation-delay: -.4s * $i;
+    animation-name: round_shield, change_opacity;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
   }
 }
 
@@ -36,75 +31,108 @@
   width: 1em;
   height: 1em;
   background-color: currentcolor;
+
+  &::before,
+  &::after {
+    content: '\0020';
+    position: absolute;
+    top: 0;
+    border-top: .5em solid transparent;
+    border-bottom: .5em solid transparent;
+  }
+  &::before {
+    right: 100%;
+    border-right: .5em solid currentcolor;
+  }
+  &::after {
+    left: 100%;
+    border-left: .5em solid currentcolor;
+  }
+  &:nth-of-type(1) {
+    visibility: hidden;
+  }
+  &:nth-of-type(2) {
+    transform: translate3d(-2.5em, 0, -4.33em) rotate3d(0, 1, 0, 30deg);
+  }
+  &:nth-of-type(3) {
+    visibility: hidden;
+  }
+  &:nth-of-type(4) {
+    transform: translate3d(-5em, 0, 0) rotate3d(0, 1, 0, 90deg);
+  }
+  &:nth-of-type(5) {
+    transform: translate3d(-4.33em, 0, 2.5em) rotate3d(0, 1, 0, 120deg);
+  }
+  &:nth-of-type(6) {
+    visibility: hidden;
+  }
+  &:nth-of-type(7) {
+    transform: translate3d(0, 0, 5em) rotate3d(0, 1, 0, 180deg);
+  }
+  &:nth-of-type(8) {
+    transform: translate3d(2.5em, 0, 4.33em) rotate3d(0, 1, 0, 210deg);
+  }
+  &:nth-of-type(9) {
+    visibility: hidden;
+  }
+  &:nth-of-type(10) {
+    transform: translate3d(5em, 0, 0) rotate3d(0, 1, 0, 270deg);
+  }
+  &:nth-of-type(11) {
+    transform: translate3d(4.33em, 0, -2.5em) rotate3d(0, 1, 0, 300deg);
+  }
+  &:nth-of-type(12) {
+    visibility: hidden;
+  }
 }
 
-.hexagon::before,
-.hexagon::after {
-  content: '\0020';
-  position: absolute;
-  top: 0;
-  border-top: .5em solid transparent;
-  border-bottom: .5em solid transparent;
-}
-.hexagon::before {
-  // left: -.475em;
-  right: 100%;
-  border-right: .5em solid currentcolor;
-}
-.hexagon::after {
-  // right: -.475em;
-  left: 100%;
-  border-left: .5em solid currentcolor;
-}
+@for $i from 0 through 12 {
+  .shield-row:nth-of-type(#{$i + 1}) {
+    top: - 3.6em + 1.2em * $i;
+    animation-delay: -.4s * $i;
+  }
 
+  .round-shield:hover 。.shield-row {
+    animation-name: round_shield;
+  }
+  .hexagon {
+    animation-name: change_opacity;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
 
-.hexagon:nth-of-type(1) {
-  visibility: hidden;
-}
-.hexagon:nth-of-type(2) {
-  transform: translate3d(-2.5em, 0, -4.33em) rotate3d(0, 1, 0, 30deg);
-}
-.hexagon:nth-of-type(3) {
-  visibility: hidden;
-}
-.hexagon:nth-of-type(4) {
-  transform: translate3d(-5em, 0, 0) rotate3d(0, 1, 0, 90deg);
-}
-.hexagon:nth-of-type(5) {
-  transform: translate3d(-4.33em, 0, 2.5em) rotate3d(0, 1, 0, 120deg);
-}
-.hexagon:nth-of-type(6) {
-  visibility: hidden;
-}
-.hexagon:nth-of-type(7) {
-  transform: translate3d(0, 0, 5em) rotate3d(0, 1, 0, 180deg);
-}
-.hexagon:nth-of-type(8) {
-  transform: translate3d(2.5em, 0, 4.33em) rotate3d(0, 1, 0, 210deg);
-}
-.hexagon:nth-of-type(9) {
-  visibility: hidden;
-}
-.hexagon:nth-of-type(10) {
-  transform: translate3d(5em, 0, 0) rotate3d(0, 1, 0, 270deg);
-}
-.hexagon:nth-of-type(11) {
-  transform: translate3d(4.33em, 0, -2.5em) rotate3d(0, 1, 0, 300deg);
-}
-.hexagon:nth-of-type(12) {
-  visibility: hidden;
+    &:nth-of-type(#{$i + 1}) {
+      animation-delay: -$i * .2s;
+    }
+  }
 }
 
 @keyframes round_shield {
   0% {
-    color: #9ce;
     transform: rotateY(0deg);
   }
   50% {
-    color: rgba(153, 204, 238, .3);
+    transform: rotateY(180deg);
   }
   100% {
-    color: #9ce;
     transform: rotateY(360deg);
   }
+}
+
+@keyframes change_opacity {
+  25% {opacity: 1;}
+  50% {
+    opacity: .3;
+  }
+  75% {opacity: 1;}
+}
+
+@keyframes change_color {
+    0% {color: #9ee;}
+    15% {color: #ee9;}
+    30% {color: #9e9;}
+    50% {color: #e99;}
+    70% {color: #e9e;}
+    85% {color: #99e;}
+    100% {color: #9ee;}
 }

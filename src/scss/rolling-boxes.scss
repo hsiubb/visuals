@@ -36,8 +36,8 @@
 }
 
 @keyframes progress-bar-stripes {
-  from { background-position: 0 0; }
-  to { background-position: 10px 0; }
+  0% { background-position: 0 0; }
+  100% { background-position: 10px 0; }
 }
 @keyframes rolling {
     0% {transform: translate(12px, 0) rotate(0deg);}

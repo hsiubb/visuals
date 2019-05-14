@@ -3,13 +3,13 @@
 @import 'function';
 @import 'streamer';
 @import 'windmill';
-@import 'rect';
 @import 'round-shield';
-@import 'rolling-boxes';
-@import 'loading-grids';
-@import 'vessel';
-@import 'dna-load';
 @import 'dice';
+@import 'vessel';
+@import 'rolling-boxes';
+@import 'dna-load';
+@import 'rect';
+// @import 'loading-grids';
 
 * {
     padding: 0;
@@ -123,7 +123,7 @@ section {
     align-items: center;
     padding: 1.25vw 0;
 
-    > div {
+    [data-board] {
         position: relative;
         width: 23vw;
         height: 23vw;

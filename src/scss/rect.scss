@@ -8,7 +8,7 @@
     overflow: hidden;
     animation: rect 5s infinite ease-in-out;
 
-    color: #9e9;
+    color: #def;
     border-width: 0;
     border-style: solid;
     border-color: currentColor;
@@ -17,7 +17,7 @@
     &::after {
         content: '\0020';
         position: absolute;
-        background: #9e9;
+        background: #def;
         animation-duration: 5s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;

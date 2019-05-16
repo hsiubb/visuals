@@ -8,6 +8,7 @@ import './heartbeat';
 import './gears';
 import './roundshield';
 import './maze';
+import './drip';
 // import './lightbox';
 // import './dot-line';
 

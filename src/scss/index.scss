@@ -9,7 +9,7 @@
 @import 'rolling-boxes';
 @import 'dna-load';
 @import 'rect';
-// @import 'loading-grids';
+@import 'loading-grids';
 
 * {
     padding: 0;
@@ -17,6 +17,9 @@
 }
 *, ::before, ::after {
     box-sizing: border-box;
+}
+html {
+    font-size: 14px;
 }
 body {
     user-select: none;
@@ -27,7 +30,6 @@ body::after {
     margin-top: -2em;
     display: block;
     visibility: hidden;
-    font-size: 14px;
     line-height: 2;
     text-align: center;
     color: #9ce;
@@ -41,22 +43,21 @@ header {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    padding: 1.5em 0;
     text-align: center;
     background: #fff;
-    border-bottom: 1px solid #ddd;
+    box-shadow: 0 0 1px inset #999;
 
     .rotate-box,
     .site-name {
         display: inline-block;
         margin: 0 10px;
-        font-size: 14px;
         vertical-align: middle;
         text-align: left;
         color: #9ce;
     }
     .rotate-box {
-        font-size: 60px;
+        font-size: 4em;
     }
     .site-info {
         color: #333;
@@ -113,7 +114,7 @@ header {
     }
 }
 .header-placeholder {
-    height: 100px;
+    height: 7em;
 }
 
 section {
@@ -196,7 +197,7 @@ section {
 
 @media (max-width: 1200px) {
     section {
-        > div {
+        [data-board] {
             width: 31vw;
             height: 31vw;
             margin-bottom: 2.33vw;
@@ -216,8 +217,11 @@ section {
 }
 
 @media (max-width: 720px) {
+    html {
+        font-size: 12px;
+    }
     section {
-        > div {
+        [data-board] {
             width: 45vw;
             height: 45vw;
             margin-bottom: 3.75vw;
@@ -246,7 +250,7 @@ section {
         }
     }
     section {
-        > div {
+        [data-board] {
             width: 90vw;
             height: 90vw;
 

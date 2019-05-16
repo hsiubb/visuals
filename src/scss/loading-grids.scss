@@ -37,6 +37,7 @@
         border-radius: 50%;
         background-color: transparent;
         box-shadow: -6px -6px transparent, -6px 6px transparent, 6px -6px transparent, 6px 6px transparent;
+        transform: rotate(0);
         transition: box-shadow .5s linear;
     }
 }
@@ -45,6 +46,7 @@
     background-color: transparent;
 
     &::before {
+        animation: rotate_dots .5s linear infinite;
         box-shadow: -6px -6px currentColor, -6px 6px currentColor, 6px -6px currentColor, 6px 6px currentColor;
     }
 }
@@ -90,4 +92,13 @@
     60% {color: #e9e;}
     80% {color: #99e;}
     100% {color: #9ee;}
+}
+
+@keyframes rotate_dots {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

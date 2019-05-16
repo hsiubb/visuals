@@ -52,6 +52,12 @@
             animation-name: main_act, act_2_2;
         }
     }
+
+    &:hover span,
+    &:hover span::before,
+    &:hover span::after {
+        animation-play-state: paused;
+    }
 }
 
 @keyframes rect {

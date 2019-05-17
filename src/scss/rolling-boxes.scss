@@ -36,6 +36,12 @@
         &:nth-of-type(5) {animation-delay: 0s;}
     }
 }
+[data-board]:hover .rolling-boxes {
+    &::after,
+    .rolling-box {
+        animation-play-state: paused;
+    }
+}
 
 @keyframes progress-bar-stripes {
   0% { background-position: 0 0; }

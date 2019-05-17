@@ -9,6 +9,36 @@ let drip;
         evnt_end = 'mouseout';
     }
 
+    function grad_random(min, max, is_fall) {
+        let dis = max - min;
+        let step = 1 / (dis + 1);
+
+        let total = 0;
+        let list = [];
+        for(let i=1; i<=dis; i++) {
+            total += (i * step);
+            list.push(total);
+        }
+        list.map(function(val, i) {
+            list[i] = 1 - val / total;
+        });
+        list.unshift(1);
+
+        !is_fall && list.reverse();
+
+        let rand = 1 - Math.random();
+        let result = 0;
+        for(let i=0; i<dis; i++) {
+            if(
+                (!is_fall && rand >= list[i] && rand < list[i+1]) || (is_fall && rand >= list[i+1] && rand < list[i])
+            ) {
+                result = i + min;
+            }
+        }
+
+        return result;
+    }
+
     const COLOR = ['#9ee', '#09f', '#f60', '#e99', '#e9e', '#ee9', '#99e', '#9e9'];
     const Pi = Math.PI;
     let dots = [];
@@ -52,7 +82,7 @@ let drip;
                 _this.radius = 0;
                 _this.get_pos();
                 _this.opacity = 1;
-            }, 599 + Math.random() * 601);
+            }, grad_random(599, 2333, false));
         }
         update() {
             this.radius = this.radius + rad_unit;

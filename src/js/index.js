@@ -1,23 +1,3 @@
-// import './skate-rink';
-import './snow';
-import './firework';
-import './strange';
-// import './earth';
-import './spiral';
-import './heartbeat';
-import './gears';
-import './roundshield';
-import './maze';
-import './drip';
-// import './lightbox';
-// import './dot-line';
-
-// console.log(Worker);
-// let component_list = ['lightbox','maze','snow','spiral','firework','heartbeat','roundshield'];
-// component_list.map(function(c) {
-// 	new Worker('./js/'+c+'.js');
-// });
-
 // 梯度随机数
 function grad_random(min, max, is_fall) {
 	let dis = max - min;
@@ -66,3 +46,18 @@ function grad_random(min, max, is_fall) {
 		});
 	}
 });
+
+
+// import './skate-rink';
+import './snow';
+import './firework';
+import './strange';
+// import './earth';
+import './spiral';
+import './heartbeat';
+import './gears';
+import './roundshield';
+import './maze';
+import './drip';
+// import './lightbox';
+// import './dot-line';

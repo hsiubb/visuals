@@ -56,7 +56,8 @@
     &:hover span,
     &:hover span::before,
     &:hover span::after {
-        animation-play-state: paused;
+        animation-duration: 2.5s;
+        animation-timing-function: linear;
     }
 }
 

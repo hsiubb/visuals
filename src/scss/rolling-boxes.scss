@@ -8,14 +8,15 @@
         left: 50%;
         top: 50%;
         width: 215px;
-        height: 10px;
-        margin-top: 20px;
+        height: 5px;
+        margin-top: 17px;
         color: #97efe7;
         transform: translate(-50%, -50%);
         background-color: currentColor;
         background-size: 5px 5px;
         background-image: linear-gradient(45deg,rgba(255,255,255,1) 25%,transparent 25%,transparent 50%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 75%,transparent 75%,transparent);
         animation: progress-bar-stripes .2s linear infinite, change_color 6s infinite linear;
+        animation-delay: -1.2s;
     }
 
     .rolling-box {
@@ -27,11 +28,12 @@
         background-color: currentColor;
         transform: translate(12px, 0) rotate(0deg);
         animation: rolling 1.5s infinite linear, change_color 6s infinite linear;
+        animation-delay: -1.2s;
 
-        &:nth-of-type(2) {animation-delay: .3s;}
-        &:nth-of-type(3) {animation-delay: .6s;}
-        &:nth-of-type(4) {animation-delay: .9s;}
-        &:nth-of-type(5) {animation-delay: 1.2s;}
+        &:nth-of-type(2) {animation-delay: -.9s;}
+        &:nth-of-type(3) {animation-delay: -.6s;}
+        &:nth-of-type(4) {animation-delay: -.3s;}
+        &:nth-of-type(5) {animation-delay: 0s;}
     }
 }
 

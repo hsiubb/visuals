@@ -54,7 +54,7 @@ let snow;
 	let ctx = cvs.getContext('2d');
 
 	let wind = 1;
-	let gravity = 2;
+	let gravity = 4;
 	function Flake(i) {
 		this.x = random(0, globalSize);
 		this.y = random(0, globalSize);
@@ -125,12 +125,12 @@ let snow;
 				status = 'asteroid';
 				opacity = .3;
 				unit_color = '#f90';
-				gravity = 4;
+				gravity = 5;
 			} else {
 				status = 'snow';
 				opacity = 1;
 				unit_color = '#fff';
-				gravity = 2;
+				gravity = 4;
 			}
 		});
 

@@ -125,7 +125,7 @@ let beam;
 				ctx.beginPath();
 					ctx.moveTo(this.x, this.y);
 					ctx.lineTo(this.tar_x, this.tar_y);
-					ctx.strokeStyle = '#09f';
+					ctx.strokeStyle = COLOR[1];
 					ctx.stroke();
 				ctx.closePath();
 			ctx.restore();

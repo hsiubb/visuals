@@ -50,11 +50,7 @@ let beam;
 		}
 		count() {
 			this.step++;
-			if(this.turn) {
-				this.curve();
-			} else {
-				this.straight();
-			}
+			this.turn ? this.curve() : this.straight();
 
 			if(this.step == STEP) {
 				this.tar_x = (parseInt(this.x / unitSize) + .5) * unitSize;
@@ -125,7 +121,7 @@ let beam;
 				ctx.beginPath();
 					ctx.moveTo(this.x, this.y);
 					ctx.lineTo(this.tar_x, this.tar_y);
-					ctx.strokeStyle = COLOR[1];
+					ctx.strokeStyle = COLOR[5];
 					ctx.stroke();
 				ctx.closePath();
 			ctx.restore();
@@ -151,7 +147,7 @@ let beam;
 	}
 
 	function update() {
-		ctx.fillStyle = 'rgba(48, 48, 48, .1)';
+		ctx.fillStyle = 'rgba(48, 48, 48, .075)';
 		ctx.fillRect(0, 0, globalSize, globalSize);
 
 		lights.map(function(light) {

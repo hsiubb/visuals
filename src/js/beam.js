@@ -53,10 +53,10 @@ let beam;
 			this.turn ? this.curve() : this.straight();
 
 			if(this.step == STEP) {
-				this.tar_x = (parseInt(this.x / unitSize) + .5) * unitSize;
-				this.tar_y = (parseInt(this.y / unitSize) + .5) * unitSize;
+				this.tar_x = Math.floor((this.x + stepSize) / unitSize + .5) * unitSize;
+				this.tar_y = Math.floor((this.y + stepSize) / unitSize + .5) * unitSize;
 				this.dir = (this.dir + 3 + Math.floor(Math.random() * 3)) % 4;
-				this.turn = Math.floor(Math.random() * 2);
+				this.turn = !Math.floor(Math.random() * 4);
 				this.step = 0;
 			}
 		}

@@ -46,20 +46,23 @@ let snow;
 
 	let ori = {};
 	let flakes = [];
-	let globalSize;
-	let unitSize;
+	let globalSize, unitSize;
+	let status = 'snow'; // or 'asteroid'
+	let opacity = 1;
+	let unit_color = '#fff';
 	let cvs = document.createElement('canvas');
 	let ctx = cvs.getContext('2d');
 
-	let wind = 1.5;
+	let wind = 1;
+	let gravity = 4;
 	function Flake(i) {
 		this.x = random(0, globalSize);
 		this.y = random(0, globalSize);
 		// this.z = random(10, 30) * .05;
-		this.z = grad_random(5, 30) * .05;
+		this.z = grad_random(2, 30) * .05;
 		this.size = this.z * 2;
 		this.sp_x = this.z * wind;
-		this.sp_y = this.z * 4;
+		this.sp_y = this.z * gravity;
 	}
 	Flake.prototype.update = function() {
 		let _this = this;
@@ -68,7 +71,7 @@ let snow;
 		ctx.save();
 			ctx.translate(this.x, this.y);
 			ctx.beginPath();
-				ctx.fillStyle = '#fff';
+				ctx.fillStyle = unit_color;
 				ctx.arc(0, 0, this.size, 0, Math.PI * 2);
 				ctx.fill();
 			ctx.closePath();
@@ -84,6 +87,7 @@ let snow;
 		flakes.update = function() {
 			flakes.map(function(flake) {
 				let tar_sp_x = flake.z * wind;
+				flake.sp_y = flake.z * gravity;
 				if(flake.sp_x !== tar_sp_x) {
 					if(Math.abs(tar_sp_x - flake.sp_x) >= .05) {
 						flake.sp_x += (tar_sp_x - flake.sp_x) * .3;
@@ -112,11 +116,22 @@ let snow;
 
 		set_flates();
 
-		cvs.addEventListener(evnt_start, function(e) {
+		cvs.addEventListener('mousemove', function(e) {
 			wind = (e.pageX - ori.x) / globalSize * 6 - 3;
+			// gravity = (e.pageY - ori.y) / globalSize * 8 - 4;
 		});
-		cvs.addEventListener(evnt_move, function(e) {
-			wind = (e.pageX - ori.x) / globalSize * 6 - 3;
+		cvs.addEventListener('click', function(e) {
+			if(status == 'snow') {
+				status = 'asteroid';
+				opacity = .3;
+				unit_color = '#f90';
+				gravity = 5;
+			} else {
+				status = 'snow';
+				opacity = 1;
+				unit_color = '#fff';
+				gravity = 4;
+			}
 		});
 
 		box.appendChild(cvs);
@@ -130,7 +145,8 @@ let snow;
 	}
 
 	function update() {
-		ctx.fillStyle = '#333';
+		ctx.fillStyle = (status == 'snow') ? '#333' : 'rgba(64, 48, 48, .2)';
+		// ctx.fillStyle = '#333';
 		ctx.fillRect(0, 0, globalSize, globalSize);
 
 		flakes.update();

@@ -59,5 +59,6 @@ import './gears';
 import './roundshield';
 import './maze';
 import './drip';
+import './dots';
 // import './lightbox';
 // import './dot-line';

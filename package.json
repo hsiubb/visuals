@@ -16,7 +16,7 @@
     "parcel-bundler": "^1.8.1",
     "postcss": "^6.0.22",
     "three": "^0.92.0",
-    "yarn": "^1.15.2"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "postcss-modules": "^1.1.0"
